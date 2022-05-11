@@ -30,8 +30,10 @@
             <input type="submit" value="Submit" id="submit" onclick="result();">
         </div>
         <div style="margin-top:20px;">
-           <p> Total Tax : <span id="totalTax">  </span></p>       
-           <p>Result is :<span id="result-amount"> </span></p>            
+           <p> Total Tax : <span id="totalTax"></span>%  (<span id="taxValue"></span>)
+           
+          </p>       
+           <p>Total Price is :<span id="result-amount"> </span></p>            
         </div>
     </section>
     <script>       
@@ -39,9 +41,11 @@
             let a = document.getElementById("amount").value;
             let b = document.getElementById("gst").value;
             let c = document.getElementById("sgst").value;
-            let totalTax = Number(b) + Number(c);          
-            let result =( Number(a) * totalTax )  / 100;
+            let totalTax = Number(b) + Number(c);    
+            let taxValue = (Number(a) * totalTax )  / 100
+            let result =Number(a) + (( Number(a) * totalTax )  / 100);
             document.getElementById("result-amount").innerHTML = result;
+            document.getElementById("taxValue").innerHTML = taxValue;
             document.getElementById("totalTax").innerHTML = totalTax;
         };
         console.log(result);
