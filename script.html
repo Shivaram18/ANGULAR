@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="form-total-amount" style="border:1px solid #efefef; width:400px; padding:20px; margin:0 auto;">
+        <div class="amount" style="margin-bottom:12px;">
+            <label for="Amount" style="width:80px; display:inline-block;">Amount</label>
+            <input type="text" placeholder="Enter amount" id="amount">
+        </div>
+        <div class="amount"  style="margin-bottom:12px;">
+            <label for="gst" style="width:80px; display:inline-block;">GST</label>
+            <input type="text" placeholder="Enter amount" id="gst">
+        </div>
+        <div class="amount"  style="margin-bottom:12px;">
+            <label for="sgst" style="width:80px; display:inline-block;">Sgst</label>
+            <input type="text" placeholder="Enter amount" id="sgst">
+        </div>
+        <div class="amount" style="margin-left: 84px;">
+            <input type="submit" value="Submit" id="submit" onclick="result();">
+        </div>
+        <div style="margin-top:20px;">
+
+           <p> Total Tax : <span id="totalTax">  </span></p>
+       
+           <p>Result is :<span id="result-amount"> </span></p>
+            
+        </div>
+    </section>
+    <script>       
+        function result(){
+            let a = document.getElementById("amount").value;
+            let b = document.getElementById("gst").value;
+            let c = document.getElementById("sgst").value;
+            let totalTax = Number(b) + Number(c);          
+            let result =( Number(a) * totalTax )  / 100;
+            document.getElementById("result-amount").innerHTML = result;
+            document.getElementById("totalTax").innerHTML = totalTax;
+        };
+        console.log(result);
+   </script>
+</body>
+</html>
