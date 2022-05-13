@@ -33,22 +33,95 @@
            <p> Total Tax : <span id="totalTax"></span>%  (<span id="taxValue"></span>)
            
           </p>       
-           <p>Total Price is :<span id="result-amount"> </span></p>            
+           <p>Total Price is :<span id="result-amount"> </span></p>  
+           <div class="loops iterations" style="border-top: 1px solid #efefef;">
+               <p>Even Numbers</p>
+                <p id="evenNumbers">
+
+                </p>
+                <p style="border-top: 1px solid #efefef; padding-top:16px">
+                    <span>Sum of 1 to 100 is <b id="sum"></b></span>
+                    
+                </p>                
+           </div>          
         </div>
     </section>
+    <section class="form-total-amount" style="border:1px solid #efefef; width:400px; padding:20px; margin:25px auto;">
+           <b> IF LOOP</b>
+            <div>
+                <p>Available amount: 
+                    <span id="amount-available"></span>
+                </p>
+                <div>
+                    <label for="Mobile" style="width:140px; display:inline-block;">Mobile Cost:</label>
+                    <input type="text" id="mobileCost" style="margin-bottom: 16px"/>
+                </div>
+                <div>
+                    <label for="pouch" style="width:140px; display:inline-block;">Pouch Cost:</label>
+                    <input type="text" id="pouchCost" style="margin-bottom: 16px"/>
+                </div>
+                <div class="amount" style="margin-left: 84px;">
+                    <input type="submit" value="Submit" id="submit-calc" onclick="bill();">
+                </div>
+                <div>
+                    <p id="msg"></p>
+                </div>
+            </div>
+    </section>
     <script>       
-        function result(){
-            let a = document.getElementById("amount").value;
-            let b = document.getElementById("gst").value;
-            let c = document.getElementById("sgst").value;
-            let totalTax = Number(b) + Number(c);    
-            let taxValue = (Number(a) * totalTax )  / 100
-            let result =Number(a) + (( Number(a) * totalTax )  / 100);
-            document.getElementById("result-amount").innerHTML = result;
-            document.getElementById("taxValue").innerHTML = taxValue;
-            document.getElementById("totalTax").innerHTML = totalTax;
-        };
-        console.log(result);
+            // if loop for purchase
+            let amount = 10000;
+            document.getElementById("amount-available").innerHTML = amount;
+            function bill(){
+                    let mobile = document.getElementById("mobileCost").value;
+                    let pouch = document.getElementById("pouchCost").value;
+                    let qoute = Number(mobile)+Number(pouch);
+                    if(qoute > 10000){
+                        let msg = "Amount is less to purchase"
+                        document.getElementById("msg").innerHTML = msg;
+                    }
+                    else{
+                        let msg = "Payment done successfully!!!"
+                        document.getElementById("msg").innerHTML = msg;
+                    }
+            }
+
+            // Multiply numbers
+            function result(){
+                    let a = document.getElementById("amount").value;
+                    let b = document.getElementById("gst").value;
+                    let c = document.getElementById("sgst").value;
+
+                let totalTax = Number(b) + Number(c);    
+                let taxValue = (Number(a) * totalTax )  / 100
+                let result =Number(a) + taxValue;
+                
+                document.getElementById("result-amount").innerHTML = result;
+                document.getElementById("taxValue").innerHTML = taxValue;
+                document.getElementById("totalTax").innerHTML = totalTax;
+            };  
+
+            // Print even Numbers
+            console.log(result);
+            for(var sr=0; sr<100; sr++){
+                if (sr % 2 == 0) {
+                    document.getElementById("evenNumbers").innerHTML = sr;
+                    console.log(sr);
+                }           
+            }
+            for (var i = 0; i < 100; i++){
+                if ((i % 2) == 0) document.write(i + ' ');
+            }
+        
+
+            // sum of 1 to 100 number
+            var sumOf = 0;
+            for(var s = 1; s <= 100; s++){
+                sumOf += s;
+                console.log(sumOf);
+                document.getElementById("sum").innerHTML = sumOf;
+            }   
+        
    </script>
 </body>
 </html>
