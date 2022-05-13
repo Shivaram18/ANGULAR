@@ -33,19 +33,22 @@
            <p> Total Tax : <span id="totalTax"></span>%  (<span id="taxValue"></span>)
            
           </p>       
-           <p>Total Price is :<span id="result-amount"> </span></p>  
-           <div class="loops iterations" style="border-top: 1px solid #efefef;">
-               <p>Even Numbers</p>
-                <p id="evenNumbers">
-
-                </p>
-                <p style="border-top: 1px solid #efefef; padding-top:16px">
-                    <span>Sum of 1 to 100 is <b id="sum"></b></span>
-                    
-                </p>                
-           </div>          
+           <p>Total Price is :<span id="result-amount"> </span></p>                      
         </div>
     </section>
+    <section class="form-total-amount" style="border:1px solid #efefef; width:400px; padding:20px;padding-top: 0; margin:25px auto;">
+        <div class="loops iterations">
+            <p><b> FOR LOOP</b></p>
+            <p>Even Numbers</p>
+             <p id="evenNumbers">
+
+             </p>
+             <p style="border-top: 1px solid #efefef; padding-top:16px">
+                 <span>Sum of 1 to 100 is <b id="sum"></b></span>
+                 
+             </p>                
+        </div> 
+    </section >
     <section class="form-total-amount" style="border:1px solid #efefef; width:400px; padding:20px; margin:25px auto;">
            <b> IF LOOP</b>
             <div>
@@ -105,12 +108,16 @@
             console.log(result);
             for(var sr=0; sr<100; sr++){
                 if (sr % 2 == 0) {
-                    document.getElementById("evenNumbers").innerHTML = sr;
+                    
                     console.log(sr);
                 }           
             }
+            // type 2
             for (var i = 0; i < 100; i++){
-                if ((i % 2) == 0) document.write(i + ' ');
+                if ((i % 2) == 0){
+                    var msr = i + ' ';
+                    document.getElementById("evenNumbers").innerHTML = msr;
+                }                 
             }
         
 
